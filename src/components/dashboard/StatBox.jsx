@@ -12,7 +12,7 @@ function StatBox({ stat, title, children }) {
           <Typography variant="h2" color={colors.grey[100]} fontWeight="bold">
             {stat}
           </Typography>
-          <Typography variant="h5" color={colors.greenAccent[500]}>
+          <Typography variant="h5" color={colors.blueAccent[500]}>
             {title}
           </Typography>
         </Box>
