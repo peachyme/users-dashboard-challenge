@@ -1,7 +1,9 @@
-import { Box, useTheme } from "@mui/material";
+import { useState } from "react";
+import { Box, useTheme, Button } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../theme";
 import Header from "../components/Header";
+import UserAddModal from "../components/users/UserAddModal";
 
 function UsersPage() {
   const theme = useTheme();
@@ -10,64 +12,64 @@ function UsersPage() {
   const rows = [
     {
       id: 1,
-      lastName: "Snow",
       firstName: "Jon",
+      lastName: "Snow",
       age: 35,
       email: "Jon@gmail.com",
     },
     {
       id: 2,
-      lastName: "Lannister",
       firstName: "Cersei",
+      lastName: "Lannister",
       age: 42,
       email: "Cersei@gmail.com",
     },
     {
       id: 3,
-      lastName: "Lannister",
       firstName: "Jaime",
+      lastName: "Lannister",
       age: 45,
       email: "Jaime@gmail.com",
     },
     {
       id: 4,
-      lastName: "Stark",
       firstName: "Arya",
+      lastName: "Stark",
       age: 16,
       email: "Stark@gmail.com",
     },
     {
       id: 5,
-      lastName: "Targaryen",
       firstName: "Daenerys",
+      lastName: "Targaryen",
       age: null,
       email: "Targaryen@gmail.com",
     },
     {
       id: 6,
-      lastName: "Melisandre",
       firstName: null,
+      lastName: "Melisandre",
       age: 150,
       email: "Melisandre@gmail.com",
     },
     {
       id: 7,
-      lastName: "Clifford",
       firstName: "Ferrara",
+      lastName: "Clifford",
       age: 44,
       email: "Clifford@gmail.com",
     },
     {
       id: 8,
-      lastName: "Frances",
       firstName: "Rossini",
+      lastName: "Frances",
       age: 36,
       email: "Frances@gmail.com",
     },
     {
       id: 9,
-      lastName: "Roxie",
       firstName: "Harvey",
+      lastName: "Roxie",
       age: 65,
       email: "Roxie@gmail.com",
     },
@@ -76,14 +78,14 @@ function UsersPage() {
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "lastName",
-      headerName: "Last Name",
+      field: "firstName",
+      headerName: "First Name",
       flex: 1,
       cellClassName: "name-column-cell",
     },
     {
-      field: "firstName",
-      headerName: "First Name",
+      field: "lastName",
+      headerName: "Last Name",
       flex: 1,
       cellClassName: "name-column-cell",
     },
@@ -97,9 +99,17 @@ function UsersPage() {
     { field: "email", headerName: "Email", flex: 1 },
   ];
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box m="20px">
       <Header title="USERS" subtitle="Managing the users" />
+      <Box display="flex" justifyContent="right" mb="-20px">
+        <Button variant="contained" color="secondary" onClick={handleOpen}>Create new user</Button>
+        <UserAddModal open={open} handleClose={handleClose} />
+      </Box>
       <Box m="40px 0 0 0" height="70vh"
           sx={{ 
             "& .MuiDataGrid-root" : { border: "none" },
