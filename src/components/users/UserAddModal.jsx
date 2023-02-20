@@ -4,7 +4,7 @@ import { tokens } from "../../theme";
 import { useTheme } from "@mui/material";
 import UserAddForm from "./UserAddForm";
 
-function UserAddModal({ open, handleClose }) {
+function UserAddModal({ open, onClose }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -23,10 +23,10 @@ function UserAddModal({ open, handleClose }) {
     <div>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={onClose}
       >
         <Box sx={style}>
-          <UserAddForm/>
+          <UserAddForm onClose={onClose} />
         </Box>
       </Modal>
     </div>

@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../Header";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../store";
 
 const initialValues = {
   firstName: "",
@@ -18,10 +20,13 @@ const userSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("required"),
 });
 
-function UserAddForm() {
+function UserAddForm({ onClose }) {
+  const dispatch = useDispatch();
   const isNonMobile = useMediaQuery("(min-width:600px)");
+
   const handleSubmit = (values) => {
-    console.log(values);
+    dispatch(addUser(values));
+    onClose();
   };
 
   return (
