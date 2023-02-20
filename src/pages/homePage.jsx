@@ -18,7 +18,7 @@ const HomePage = () => {
       <Box mt="50px" display="grid" gridTemplateColumns="repeat(12, 1fr)" gridAutoRows="140px" gap="40px">
         <Box gridColumn="span 4" bgcolor={colors.primary[400]} display="flex" alignItems="center" justifyContent="center">
           <StatBox stat={usersStat} title="Users created">
-            <GroupIcon sx={{ fontSize: 50, color: colors.blueAccent[200] }}/>
+            <GroupIcon sx={{ fontSize: 50, color: colors.greenAccent[400] }}/>
           </StatBox>
         </Box>
       </Box>
