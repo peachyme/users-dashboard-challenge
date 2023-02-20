@@ -23,7 +23,7 @@ function Navbar() {
   };
 
   return (
-    <Box display="flex" justifyContent="right" p={2}>
+    <Box display="flex" justifyContent="right" p={2} pb={0}>
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
